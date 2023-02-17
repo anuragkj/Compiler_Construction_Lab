@@ -1,0 +1,34 @@
+//Executes only once, return statement used  
+  1 %{
+  2         #include<stdio.h>
+  3         #include<stdlib.h>
+  4 %}
+  5 number  [0-9]+
+  6 op      [+|-|*|/|^]
+  7 %%
+  8 {number}        {return atoi(yytext);}
+  9 {op}            {printf("Operator");}
+ 10 %%
+ 11 int main()
+ 12 {
+ 13         int num = yylex();
+ 14         printf("Number found:%d",num);
+ 15         return 1;
+ 16 }
+
+//Executes as a loop, directly printed
+  1 %{
+  2         #include<stdio.h>
+  3         #include<stdlib.h>
+  4 %}
+  5 number  [0-9]+
+  6 op      [+|-|*|/|^]
+  7 %%
+  8 {number}        {printf("Number found:%d",atoi(yytext));}
+  9 {op}            {printf("Operator");}
+ 10 %%
+ 11 int main()
+ 12 {
+ 13         yylex();
+ 14         return 1;
+ 15 }
