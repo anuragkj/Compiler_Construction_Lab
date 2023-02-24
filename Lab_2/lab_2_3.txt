@@ -1,0 +1,17 @@
+%{
+#include<stdlib.h>
+#include<stdio.h>
+%}
+
+ZN [0-9]
+ON [1-9]
+ZFO [0-4]
+ZF [0-5]
+
+OCTET {ZN}|{ON}{ZN}|{ZN}{2}|2{ZFO}{ZN}|25{ZF}
+%%
+
+{OCTET}\.{OCTET}\.{OCTET}\.{OCTET} {printf("Valid");}
+. {printf("Invalid");}
+
+%%

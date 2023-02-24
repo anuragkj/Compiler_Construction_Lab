@@ -1,0 +1,19 @@
+%{
+#include<stdlib.h>
+#include<stdio.h>
+%}
+
+number [1-9]* 
+decimal {number}.{number}* 
+letter [a-z A-Z] 
+ident {letter}({letter}|{number})* 
+
+%%
+
+{number} {printf("Number");}
+{decimal} {printf("Decimal");}
+{letter}  {printf("Letter");}
+{ident}  {printf("Identifier");}
+. {printf("Mystery");}
+
+%%

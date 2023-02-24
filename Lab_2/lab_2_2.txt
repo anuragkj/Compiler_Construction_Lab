@@ -1,0 +1,12 @@
+%{
+#include<stdlib.h>
+#include<stdio.h>
+%}
+
+%%
+
+r([0-2][0-9]?|3[01]?|[4-9]) {printf("Valid");}
+. {printf("Invalid");}
+[^ \t\n] {printf("Invalid");}
+
+%%
