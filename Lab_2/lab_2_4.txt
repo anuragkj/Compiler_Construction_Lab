@@ -1,12 +1,13 @@
 %{
-#include<stdlib.h>
 #include<stdio.h>
 %}
-
-
+%%
+\n {printf("NEW LINE\n");}
+[^ \t\r\n\f\v]+ {printf("Everything except new line: %s\n",yytext);}
 %%
 
-[\n] {printf("New line");}
-. {printf("");}
-
-%%
+int main()
+{
+yylex();
+return 1;
+}
