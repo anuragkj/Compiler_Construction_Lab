@@ -1,19 +1,14 @@
 %{
-#include<stdlib.h>
 #include<stdio.h>
 %}
-
-number [1-9]* 
-decimal {number}.{number}* 
-letter [a-z A-Z] 
-ident {letter}({letter}|{number})* 
-
 %%
-
-{number} {printf("Number");}
-{decimal} {printf("Decimal");}
-{letter}  {printf("Letter");}
-{ident}  {printf("Identifier");}
-. {printf("Mystery");}
-
+[a-z]([a-z]|[0-9])+ {printf("identifier");}
+[A-Z]+|[a-z]+ {printf("Letter");}
+[0-9]+.[0-9]+ {printf("decimal");}
+[0-9]+ {printf("integer");}
 %%
+int main()
+{
+yylex();
+return 0;
+}
