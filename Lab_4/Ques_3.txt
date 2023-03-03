@@ -20,8 +20,10 @@ int num_lines = 0;
     num_chars+=yyleng;
 }
 
-.{6,} {
-    num_chars+=yyleng;
+. {
+	if(yyleng >= 6){	
+    		num_chars+=yyleng;
+	}
 }
 
 
