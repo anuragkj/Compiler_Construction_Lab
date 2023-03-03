@@ -1,3 +1,4 @@
+Please fix the indentation before compiling when copying directly into terminal.
 Questions:
 1.     Write a LEX program to recognize the following
 a)     Operators: +, -, *, /, |,
