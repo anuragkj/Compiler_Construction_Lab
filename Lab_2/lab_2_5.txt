@@ -1,11 +1,16 @@
 %{
 #include<stdio.h>
 %}
+letter [A-Za-z]
+digit [0-9]
+digits {digit}+
+id {letter}({letter}|{digit})*
+num {digits}(\.{digits})?(E[+-]?{digits})?
 %%
-[a-z]([a-z]|[0-9])+ {printf("identifier");}
-[A-Z]+|[a-z]+ {printf("Letter");}
-[0-9]+.[0-9]+ {printf("decimal");}
-[0-9]+ {printf("integer");}
+{id} {printf("identifier");}
+{letter} {printf("Letter");}
+{num} {printf("decimal");}
+{digits} {printf("integer");}
 %%
 int main()
 {
