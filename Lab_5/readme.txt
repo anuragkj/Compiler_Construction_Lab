@@ -5,4 +5,4 @@ Questions:
 
 3.     Write a LEX program to save the contents of an input file excluding comment lines to another file.
 
-4.     Write a LEX program that would take a BITS student's roll number as input and prints the details of the student based on that. You are expected to write regular expressions that would synthesize information like, year of joining, specialization, PS/Thesis, Registration index, Campus (U) etc. from the given roll number. If the given input does not abide by the Roll number format, print some error message.
+4.     Write a LEX program that would take a BITS student's roll number as input and prints the details of the student based on that. You are expected to write regular        expressions that would synthesize information like, year of joining, specialization, PS/Thesis, Registration index, Campus (U) etc. from the given roll number.        If the given input does not abide by the Roll number format, print some error message.
