@@ -1,0 +1,23 @@
+%{
+#include <stdio.h>
+%}
+
+%%
+
+^[0-9]{4}[A-Za-z0-9]{2}(PS|TS)[0-9]{4}[HPUG]$  {
+    printf("Year of Joining: %c%c%c%c\n",yytext[0], yytext[1],yytext[2], yytext[3]);
+    printf("Specialization: %c%c\n", yytext[4], yytext[5]);
+    printf("Thesis/Practice School: %c%c\n", yytext[6], yytext[7]);
+    printf("Registration Index: %c%c%c%c\n", yytext[8], yytext[9], yytext[10], yytext[11]);
+    printf("Campus: %c\n", yytext[12]);
+}
+.  {
+    printf("Invalid roll number format.\n");
+}
+
+%%
+
+int main() {
+    yylex();
+    return 0;
+}
