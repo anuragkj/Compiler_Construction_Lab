@@ -1,0 +1,45 @@
+%{
+#include <stdio.h>
+#include <stdbool.h>
+bool in_block_comment = false;  /* initialize in_block_comment flag to false */
+bool in_line_comment = false;   /* initialize in_line_comment flag to false */
+%}
+
+%%
+
+"/*"    { in_block_comment = true; }  /* set in_block_comment flag to true on start of block comment */
+"*/"    { in_block_comment = false; }  /* set in_block_comment flag to false on end of block comment */
+"//"    { in_line_comment = true; }   /* set in_line_comment flag to true on start of line comment */
+\n      {
+            if (in_line_comment) { in_line_comment = false; }  /* set in_line_comment flag to false on end of line */
+            if (!in_block_comment) { fputc('\n', yyout); }     /* write newline character to output file if not in comment */
+         }
+.       { if (!in_block_comment && !in_line_comment) { fputc(yytext[0], yyout); } }  /* write character to output file if not in comment */
+%%
+
+int main(int argc, char** argv) {
+    if (argc != 3) {
+        printf("Usage: %s input_file output_file\n", argv[0]);
+        return 1;
+    }
+
+    FILE* input_file = fopen(argv[1], "r");
+    if (input_file == NULL) {
+        printf("Error: could not open input file %s\n", argv[1]);
+        return 1;
+    }
+
+    FILE* output_file = fopen(argv[2], "w");
+    if (output_file == NULL) {
+        printf("Error: could not open output file %s\n", argv[2]);
+        return 1;
+    }
+
+    yyin = input_file;
+    yyout = output_file;
+    yylex();
+
+    fclose(input_file);
+    fclose(output_file);
+    return 0;
+}
