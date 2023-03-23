@@ -1,14 +1,10 @@
-Please fix the indentation before compiling when copying directly into terminal.
+TO RUN QUES 3 YOU MUST PUT FILE NAMES AS ARGUMENT TO A.OUT command
 Questions:
-1.     Write a LEX program to recognize the following
-a)     Operators: +, -, *, /, |,
-b)    Numbers
-c)     newline
-d)    Any other character apart from the above should be recognized as mystery character
-For each of the above mentioned matches (classes of lexeme) in your input, the program should print the following: PLUS, MINUS, MUL, DIV, ABS, NUMBER, NEW LINE, MYSTERY CHAR respectively. Your program should also strip of whitespaces.
+1.     Write a LEX program to get a binary input and print whether the given input is a power of two or not.
 
-2.     Write a LEX program to print the number of words, characters and lines in a given input.
+2.     Write a LEX program to insert line numbers to a file. For this copy your favourite C program “input.c” to your folder which would be the input to your LEX program.
 
-3.     Modify the above LEX program so that a word and its characters are counted only if its length is greater than or equal to 6.   
+3.     Write a LEX program to save the contents of an input file excluding comment lines to another file.
 
-4.     Write a LEX program to print if the input is an odd number or an even number along with its length. Also, the program should check the correctness of the input (i.e. if the input is one even number and one odd number).
+4.     Write a LEX program that would take a BITS student's roll number as input and prints the details of the student based on that. You are expected to write regular        expressions that would synthesize information like, year of joining, specialization, PS/Thesis, Registration index, Campus (U) etc. from the given roll number.        If the given input does not abide by the Roll number format, print some error message.
+
