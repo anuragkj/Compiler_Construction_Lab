@@ -1,2 +1,2 @@
-# Compiler_COnstruction_Lab
+# Compiler_Construction_Lab
 Codes from the CC lab
